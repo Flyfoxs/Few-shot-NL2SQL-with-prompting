@@ -1,6 +1,6 @@
 import pandas as pd
 import time
-import openai
+
 import os
 import sys
 
@@ -441,9 +441,9 @@ if sys.argv[1] == "--dataset" and sys.argv[3] == "--output":
 else:
     raise Exception("Please use this format python CoT.py --dataset data/ --output predicted_sql.txt")
 
-API_KEY = #key
-os.environ["OPENAI_API_KEY"] = API_KEY
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# API_KEY = #key
+# os.environ["OPENAI_API_KEY"] = API_KEY
+# openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 def load_data(DATASET):
@@ -569,35 +569,59 @@ def debuger(test_sample_text,database,sql):
   fields += "Primary_keys = " + find_primary_keys_MYSQL_like(database)
   prompt = instruction + fields+ '#### Question: ' + test_sample_text + '\n#### SQLite SQL QUERY\n' + sql +'\n#### SQLite FIXED SQL QUERY\nSELECT'
   return prompt
+
+from langchain.llms import HuggingFaceTextGenInference
+llm = HuggingFaceTextGenInference(
+    inference_server_url=os.getenv("LLM_API"),
+    max_new_tokens=650,
+    #top_k=10,
+    #top_p=0.95,
+    #typical_p=0.95,
+    temperature=0.01,
+    #repetition_penalty=1.03,
+)
+
 def GPT4_generation(prompt):
-  response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[{"role": "user", "content": prompt}],
-    n = 1,
-    stream = False,
-    temperature=0.0,
-    max_tokens=600,
-    top_p = 1.0,
-    frequency_penalty=0.0,
-    presence_penalty=0.0,
-    stop = ["Q:"]
-  )
-  return response['choices'][0]['message']['content']
+    print(f"🔴Begin:{len(prompt)}, {type(prompt)}")
+    try:
+        response = llm.predict(prompt,
+                      stop=["Q:"])
+    except Exception as e:
+        print(e)
+        raise e
+    # response = openai.ChatCompletion.create(
+    # model="gpt-4",
+    # messages=[{"role": "user", "content": prompt}],
+    # n = 1,
+    # stream = False,
+    # temperature=0.0,
+    # max_tokens=600,
+    # top_p = 1.0,
+    # frequency_penalty=0.0,
+    # presence_penalty=0.0,
+    # stop = ["Q:"]
+    # )
+    print(response)
+    return response['choices'][0]['message']['content']
 
 def GPT4_debug(prompt):
-  response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[{"role": "user", "content": prompt}],
-    n = 1,
-    stream = False,
-    temperature=0.0,
-    max_tokens=350,
-    top_p = 1.0,
-    frequency_penalty=0.0,
-    presence_penalty=0.0,
-    stop = ["#", ";","\n\n"]
-  )
-  return response['choices'][0]['message']['content']
+    response = llm.predict(
+        text=[{"role": "user", "content": prompt}],
+        stop = ["#", ";","\n\n"]
+    )
+    # response = openai.ChatCompletion.create(
+    # model="gpt-4",
+    # messages=[{"role": "user", "content": prompt}],
+    # n = 1,
+    # stream = False,
+    # temperature=0.0,
+    # max_tokens=350,
+    # top_p = 1.0,
+    # frequency_penalty=0.0,
+    # presence_penalty=0.0,
+    # stop = ["#", ";","\n\n"]
+    # )
+    return response['choices'][0]['message']['content']
 
 if __name__ == '__main__':
     spider_schema,spider_primary,spider_foreign = creatiing_schema(DATASET_SCHEMA)
