@@ -1,0 +1,813 @@
+Number of data samples 1034
+0it [00:00, ?it/s]🔴 index is 0
+SELECT count(*) FROM singer
+How many singers do we have?
+In the question "How many singers do we have?", we are asked:
+"How many singers" so we need column = [singer.Singer_ID]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Singer_ID]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Singer_ID]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "How many singers do we have?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "How many singers do we have?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT COUNT (DISTINCT Singer_ID) FROM singer
+
+
+🍉 SELECT COUNT (DISTINCT Singer_ID) FROM singer
+
+
+🍍 SELECT COUNT (DISTINCT Singer_ID) FROM singer
+1it [00:48, 48.45s/it]🔴 index is 1
+SELECT count(*) FROM singer
+What is the total number of singers?
+In the question "What is the total number of singers?", we are asked:
+"the total number of singers" so we need column = [singer.Singer_ID]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Singer_ID]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Singer_ID]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What is the total number of singers?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "What is the total number of singers?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT count(*) FROM singer
+
+
+🍉 SELECT count(*) FROM singer
+
+
+🍍 SELECT count(*) FROM singer
+2it [01:35, 47.49s/it]🔴 index is 2
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+Show name, country, age for all singers ordered by age from the oldest to the youngest.
+In the question "Show name, country, age for all singers ordered by age from the oldest to the youngest.", we are asked:
+"name, country, age for all singers" so we need column = [singer.Name,singer.Country,singer.Age]
+"ordered by age from the oldest to the youngest" so we need column = [singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Name,singer.Country,singer.Age,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course
+🟠 [singer.Name,singer.Country,singer.Age,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course
+The SQL query for the question "Show name, country, age for all singers ordered by age from the oldest to the youngest." needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "Show name, country, age for all singers ordered by age from the oldest to the youngest." needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+
+
+🍉 SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+
+
+🍍 SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+3it [02:26, 49.31s/it]🔴 index is 3
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+What are the names, countries, and ages for every singer in descending order of age?
+In the question "What are the names, countries, and ages for every singer in descending order of age?", we are asked:
+"names, countries, and ages" so we need column = [singer.Name,singer.Country,singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Name,singer.Country,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Name,singer.Country,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What are the names, countries, and ages for every singer in descending order of age?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "What are the names, countries, and ages for every singer in descending order of age?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+
+
+🍉 SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+
+
+🍍 SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+4it [03:17, 49.81s/it]🔴 index is 4
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+What is the average, minimum, and maximum age of all singers from France?
+In the question "What is the average, minimum, and maximum age of all singers from France?", we are asked:
+"the average, minimum, and maximum age of all singers" so we need column = [singer.Age]
+"from France" so we need column = [singer.Country]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [France]. So the Schema_links are:
+Schema_links: [singer.Age,singer.Country,France]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Age,singer.Country,France]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What is the average, minimum, and maximum age of all singers from France?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "What is the average, minimum, and maximum age of all singers from France?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+
+
+🍉 SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+
+
+🍍 SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+5it [04:08, 50.34s/it]🔴 index is 5
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+What is the average, minimum, and maximum age for all French singers?
+In the question "What is the average, minimum, and maximum age for all French singers?", we are asked:
+"the average, minimum, and maximum age for all French singers" so we need column = [singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [French]. So the Schema_links are:
+Schema_links: [singer.Age,French]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Age,French]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What is the average, minimum, and maximum age for all French singers?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "What is the average, minimum, and maximum age for all French singers?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'French'
+
+
+🍉 SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'French'
+
+
+🍍 SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+6it [04:59, 50.61s/it]🔴 index is 6
+SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1
+Show the name and the release year of the song by the youngest singer.
+In the question "Show the name and the release year of the song by the youngest singer.", we are asked:
+"the name and the release year of the song" so we need column = [singer.Song_Name,singer.Song_release_year]
+"by the youngest singer" so we need column = [singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Song_Name,singer.Song_release_year,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,pr
+🟠 [singer.Song_Name,singer.Song_release_year,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,pr
+The SQL query for the question "Show the name and the release year of the song by the youngest singer." needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "Show the name and the release year of the song by the youngest singer." needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT name ,  Song_release_year FROM singer WHERE age = (SELECT min(age) FROM singer)
+
+
+🍉 SELECT name ,  Song_release_year FROM singer WHERE age = (SELECT min(age) FROM singer)
+
+
+🍍 SELECT name ,  Song_release_year FROM singer WHERE age = (SELECT min(age) FROM singer)
+7it [05:50, 50.78s/it]🔴 index is 7
+SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1
+What are the names and release years for all the songs of the youngest singer?
+In the question "What are the names and release years for all the songs of the youngest singer?", we are asked:
+"names and release years for all the songs of the youngest singer" so we need column = [singer.Name,singer.Song_release_year]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Name,singer.Song_release_year]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Name,singer.Song_release_year]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What are the names and release years for all the songs of the youngest singer?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "What are the names and release years for all the songs of the youngest singer?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT name ,  Song_release_year FROM singer WHERE age = (SELECT min(age) FROM singer)
+
+
+🍉 SELECT name ,  Song_release_year FROM singer WHERE age = (SELECT min(age) FROM singer)
+
+
+🍍 SELECT name ,  Song_release_year FROM singer WHERE age = (SELECT min(age) FROM singer)
+8it [06:41, 50.67s/it]🔴 index is 8
+SELECT DISTINCT country FROM singer WHERE age  >  20
+What are all distinct countries where singers above age 20 are from?
+In the question "What are all distinct countries where singers above age 20 are from?", we are asked:
+"all distinct countries" so we need column = [singer.Country]
+"singers above age 20" so we need column = [singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [20]. So the Schema_links are:
+Schema_links: [singer.Country,singer.Age,20]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Country,singer.Age,20]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What are all distinct countries where singers above age 20 are from?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "What are all distinct countries where singers above age 20 are from?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT DISTINCT Country FROM singer WHERE Age  >  20
+
+
+🍉 SELECT DISTINCT Country FROM singer WHERE Age  >  20
+
+
+🍍 SELECT DISTINCT Country FROM singer WHERE Age > 20
+9it [07:32, 50.75s/it]🔴 index is 9
+SELECT DISTINCT country FROM singer WHERE age  >  20
+What are  the different countries with singers above age 20?
+In the question "What are  the different countries with singers above age 20?", we are asked:
+"different countries" so we need column = [singer.Country]
+"singers above age 20" so we need column = [singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = [20]. So the Schema_links are:
+Schema_links: [singer.Country,singer.Age,20]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Country,singer.Age,20]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What are  the different countries with singers above age 20?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "What are  the different countries with singers above age 20?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT DISTINCT Country FROM singer WHERE Age  >  20
+
+
+🍉 SELECT DISTINCT Country FROM singer WHERE Age  >  20
+
+
+🍍 SELECT DISTINCT Country FROM singer WHERE Age  >  20
+10it [08:22, 50.70s/it]🔴 index is 10
+SELECT country ,  count(*) FROM singer GROUP BY country
+Show all countries and the number of singers in each country.
+In the question "Show all countries and the number of singers in each country.", we are asked:
+"all countries" so we need column = [singer.Country]
+"the number of singers in each country" so we need column = [singer.Singer_ID]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Country,singer.Singer_ID]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Country,singer.Singer_ID]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "Show all countries and the number of singers in each country." needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "Show all countries and the number of singers in each country." needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT Country ,  COUNT(*) FROM singer GROUP BY Country
+
+
+🍉 SELECT Country ,  COUNT(*) FROM singer GROUP BY Country
+
+
+🍍 SELECT Country ,  COUNT(*) FROM singer GROUP BY Country
+11it [09:13, 50.72s/it]🔴 index is 11
+SELECT country ,  count(*) FROM singer GROUP BY country
+How many singers are from each country?
+In the question "How many singers are from each country?", we are asked:
+"How many singers" so we need column = [singer.Singer_ID]
+"are from each country" so we need column = [singer.Country]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Singer_ID,singer.Country]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Singer_ID,singer.Country]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "How many singers are from each country?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+🟡 The SQL query for the question "How many singers are from each country?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY"
+
+
+EASY
+SELECT COUNT (DISTINCT Country) ,  Country FROM singer GROUP BY Country
+
+
+🍉 SELECT COUNT (DISTINCT Country) ,  Country FROM singer GROUP BY Country
+
+
+🍍 SELECT COUNT (DISTINCT Country) ,  Country FROM singer GROUP BY Country
+12it [10:03, 50.40s/it]🔴 index is 12
+SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)
+List all song names by singers above the average age.
+In the question "List all song names by singers above the average age.", we are asked:
+"song names by singers" so we need column = [singer.Song_Name]
+"singers above the average age" so we need column = [singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Song_Name,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Song_Name,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "List all song names by singers above the average age." needs these tables = [singer], so we don't need JOIN.
+Plus, it requires nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = ["What is the average age of the singers"].
+So, we don't need JOIN and need nested queries, then the the SQL query can be classified as "NESTED".
+Label: "NESTED"
+
+
+🟡 The SQL query for the question "List all song names by singers above the average age." needs these tables = [singer], so we don't need JOIN.
+Plus, it requires nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = ["What is the average age of the singers"].
+So, we don't need JOIN and need nested queries, then the the SQL query can be classified as "NESTED".
+Label: "NESTED"
+
+
+NESTED
+What is the average age of the singers" is SELECT avg(age) FROM singer
+So, the answer to the question "List all song names by singers above the average age." is =
+Intermediate_representation: select singer.Song_Name from singer  where  @.@ > avg ( singer.Age )
+SQL: SELECT Song_Name FROM singer WHERE Age  >  (SELECT avg(age) FROM singer)
+
+
+🍉 SELECT Song_Name FROM singer WHERE Age  >  (SELECT avg(age) FROM singer)
+
+
+🍍 SELECT DISTINCT singer.Song_Name FROM singer WHERE singer.Age > (SELECT avg(age) FROM singer)
+13it [10:58, 52.01s/it]🔴 index is 13
+SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)
+What are all the song names by singers who are older than average?
+In the question "What are all the song names by singers who are older than average?", we are asked:
+"song names by singers" so we need column = [singer.Song_Name]
+"singers who are older than average" so we need column = [singer.Age]
+Based on the columns and tables, we need these Foreign_keys = [].
+Based on the tables, columns, and Foreign_keys, The set of possible cell values are = []. So the Schema_links are:
+Schema_links: [singer.Song_Name,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+🟠 [singer.Song_Name,singer.Age]
+
+Table advisor, columns = [*,s_ID,i_ID]
+Table classroom, columns = [*,building,room_number,capacity]
+Table course, columns = [*,course_id,title,dept_name,credits]
+Table department, columns = [*,dept_name,building,budget]
+Table instructor, columns = [*,ID,name,dept_name,salary]
+Table prereq, columns = [*,course_id,prereq_id]
+Table section, columns = [*,course_id,sec_id,semester,year,building,room_number,time_slot_id]
+Table student, columns = [*,ID,name,dept_name,tot_cred]
+Table takes, columns = [*,ID,course_id,sec_id,semester,year,grade]
+Table teaches, columns = [*,ID,course_id,sec_id,semester,year]
+Table time_slot, columns = [*,time_slot_id,day,start_hr,start_min,end_hr,end_min]
+Foreign_keys = [course.dept_name = department.dept_name,instructor.dept_name = department.dept_name,section.building = classroom.building,section.room_number = classroom.room_number,section.course_id = course.course_id,teaches.ID = instructor.ID,teaches.course_id = section.course_id,teaches.sec_id = section.sec_id,teaches.semester = section.semester,teaches.year = section.year,student.dept_name = department.dept_name,takes.ID = student.ID,takes.course_id = section.course_id,takes.sec_id = section.sec_id,takes.semester = section.semester,takes.year = section.year,advisor.s_ID = student.ID,advisor.i_ID = instructor.ID,prereq.prereq_id = course.course_id,prereq.course_id = course.course_id]
+
+The SQL query for the question "What are all the song names by singers who are older than average?" needs these tables = [singer], so we don't need JOIN.
+Plus, it requires nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = ["What is the average age of the singers?"].
+So, we don't need JOIN and need nested queries, then the the SQL query can be classified as "NESTED".
+Label: "NESTED"
+
+
+🟡 The SQL query for the question "What are all the song names by singers who are older than average?" needs these tables = [singer], so we don't need JOIN.
+Plus, it requires nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = ["What is the average age of the singers?"].
+So, we don't need JOIN and need nested queries, then the the SQL query can be classified as "NESTED".
+Label: "NESTED"
+
+
+NESTED
+What is the average age of the singers?" is SELECT avg(age) FROM singer
+So, the answer to the question "What are all the song names by singers who are older than average?" is =
+Intermediate_representation: select singer.Song_Name from singer  where  @.@ > avg ( singer.Age )
+SQL: SELECT Song_Name FROM singer WHERE Age  >  (SELECT avg(age) FROM singer)
+
+
+🍉 SELECT Song_Name FROM singer WHERE Age  >  (SELECT avg(age) FROM singer)
+
+
+🍍 SELECT DISTINCT Song_Name FROM singer WHERE Age  >  (SELECT avg(age) FROM singer)
+14it [11:55, 53.46s/it]🔴 index is 14
+SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000
+Show location and name for all stadiums with a capacity between 5000 and 10000.
