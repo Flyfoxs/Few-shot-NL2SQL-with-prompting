@@ -4,6 +4,7 @@ import time
 import os
 import sys
 
+from tqdm import tqdm
 
 #----------------------------------------------------prompts-----------------------------------------------
 schema_linking_prompt = '''Table advisor, columns = [*,s_ID,i_ID]
@@ -582,7 +583,6 @@ llm = HuggingFaceTextGenInference(
 )
 
 def GPT4_generation(prompt):
-    print(f"🔴Begin:{len(prompt)}, {type(prompt)}")
     try:
         response = llm.predict(prompt,
                       stop=["Q:"])
@@ -606,10 +606,13 @@ def GPT4_generation(prompt):
     # return response['choices'][0]['message']['content']
 
 def GPT4_debug(prompt):
-    response = llm.predict(
-        text=[{"role": "user", "content": prompt}],
-        stop = ["#", ";","\n\n"]
-    )
+    response = llm.predict(prompt,
+                           stop = ["#", ";","\n\n"]
+                           )
+    # response = llm.predict(
+    #     text=[{"role": "user", "content": prompt}],
+    #     stop = ["#", ";","\n\n"]
+    # )
     # response = openai.ChatCompletion.create(
     # model="gpt-4",
     # messages=[{"role": "user", "content": prompt}],
@@ -622,16 +625,17 @@ def GPT4_debug(prompt):
     # presence_penalty=0.0,
     # stop = ["#", ";","\n\n"]
     # )
-    return response['choices'][0]['message']['content']
+    return response
+    # return response['choices'][0]['message']['content']
 
 if __name__ == '__main__':
     spider_schema,spider_primary,spider_foreign = creatiing_schema(DATASET_SCHEMA)
     val_df = load_data(DATASET)
     print(f"Number of data samples {val_df.shape[0]}")
     CODEX = []
-    for index, row in val_df.iterrows():
+    for index, row in tqdm(val_df.iterrows()):
         #if index < 405: continue #for testing
-        print(f"index is {index}")
+        print(f"🔴 index is {index}")
         print(row['query'])
         print(row['question'])
         schema_links = None
