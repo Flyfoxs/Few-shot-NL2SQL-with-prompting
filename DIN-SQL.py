@@ -601,7 +601,7 @@ def GPT4_generation(prompt):
     # presence_penalty=0.0,
     # stop = ["Q:"]
     # )
-    print(response)
+    # print(response)
     return response
     # return response['choices'][0]['message']['content']
 
@@ -651,7 +651,7 @@ if __name__ == '__main__':
         except:
             print("Slicing error for the schema_linking module")
             schema_links = "[]"
-        print("🟠", schema_links)
+        print("🟠", schema_links, "🟠",)
         classification = None
         while classification is None:
             try:
@@ -665,7 +665,7 @@ if __name__ == '__main__':
         except:
             print("Slicing error for the classification module")
             predicted_class = '"NESTED"'
-        print("🟡", classification)
+        print("🟡", classification, "🟡", )
         if '"EASY"' in predicted_class:
             print("EASY")
             SQL = None
@@ -705,7 +705,7 @@ if __name__ == '__main__':
             except:
                 print("SQL slicing error")
                 SQL = "SELECT"
-        print("🍉", SQL)
+        print("🍉", SQL, "🍉", )
         debugged_SQL = None
         while debugged_SQL is None:
             try:
@@ -714,7 +714,7 @@ if __name__ == '__main__':
                 time.sleep(3)
                 pass
         SQL = "SELECT " + debugged_SQL
-        print("🍍", SQL)
+        print("🍍", SQL, "🍍",)
         CODEX.append([row['question'], SQL, row['query'], row['db_id']])
         #break
     df = pd.DataFrame(CODEX, columns=['NLQ', 'PREDICTED SQL', 'GOLD SQL', 'DATABASE'])
