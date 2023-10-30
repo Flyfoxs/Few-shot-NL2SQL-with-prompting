@@ -1,0 +1,169 @@
+0it [00:00, ?it/s]
+🔴 index is 0
+SELECT count(*) FROM singer
+How many singers do we have?
+#1,schema_links:[singer.Singer_ID]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT count(*) FROM singer
+#4,SQL: SELECT count(DISTINCT Singer_ID) FROM singer,   same:False
+1it [00:50, 50.50s/it]
+🔴 index is 1
+SELECT count(*) FROM singer
+What is the total number of singers?
+#1,schema_links:[singer.Singer_ID]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT count(*) FROM singer
+#4,SQL: SELECT count(DISTINCT Singer_ID) FROM singer,   same:False
+2it [01:42, 51.22s/it]
+🔴 index is 2
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+Show name, country, age for all singers ordered by age from the oldest to the youngest.
+#1,schema_links:[singer.Name,singer.Country,singer.Age,singer.Age]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+#4,SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC,   same:True
+3it [02:35, 52.28s/it]
+🔴 index is 3
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+What are the names, countries, and ages for every singer in descending order of age?
+#1,schema_links:[singer.Name,singer.Country,singer.Age]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+#4,SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC,   same:True
+4it [03:28, 52.53s/it]
+🔴 index is 4
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+What is the average, minimum, and maximum age of all singers from France?
+#1,schema_links:[singer.Age,singer.Country,France]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+#4,SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France',   same:True
+5it [04:25, 54.09s/it]
+🔴 index is 5
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+What is the average, minimum, and maximum age for all French singers?
+#1,schema_links:[singer.Age,French]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'French'
+#4,SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France',   same:False
+6it [05:18, 53.75s/it]
+🔴 index is 6
+SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1
+Show the name and the release year of the song by the youngest singer.
+#1,schema_links:[singer.Song_Name,singer.Song_release_year,singer.Age]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT Song_Name ,  Song_release_year FROM singer WHERE Age = (SELECT min(Age) FROM singer)
+#4,SQL: SELECT Song_Name ,  Song_release_year FROM singer WHERE Age = (SELECT min(Age) FROM singer),   same:True
+7it [06:17, 55.45s/it]
+🔴 index is 7
+SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1
+What are the names and release years for all the songs of the youngest singer?
+#1,schema_links:[singer.Name,singer.Song_release_year]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT Name ,  Song_release_year FROM singer ORDER BY Age ASC LIMIT 1
+#4,SQL: SELECT Name ,  Song_release_year FROM singer ORDER BY Age ASC LIMIT 1,   same:True
+8it [07:12, 55.26s/it]
+🔴 index is 8
+SELECT DISTINCT country FROM singer WHERE age  >  20
+What are all distinct countries where singers above age 20 are from?
+#1,schema_links:[singer.Country,singer.Age,20]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT DISTINCT Country FROM singer WHERE Age  >  20
+#4,SQL: SELECT DISTINCT Country FROM singer WHERE Age > 20,   same:False
+9it [08:05, 54.47s/it]
+🔴 index is 9
+SELECT DISTINCT country FROM singer WHERE age  >  20
+What are  the different countries with singers above age 20?
+#1,schema_links:[singer.Country,singer.Age,20]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT DISTINCT Country FROM singer WHERE Age  >  20
+#4,SQL: SELECT DISTINCT Country FROM singer WHERE Age > 20,   same:False
+10it [08:57, 53.89s/it]
+🔴 index is 10
+SELECT country ,  count(*) FROM singer GROUP BY country
+Show all countries and the number of singers in each country.
+#1,schema_links:[singer.Country,singer.Singer_ID]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT Country ,  COUNT (Singer_ID) FROM singer GROUP BY Country
+#4,SQL: SELECT Country ,  COUNT (Singer_ID) FROM singer GROUP BY Country,   same:True
+11it [09:51, 53.74s/it]
+🔴 index is 11
+SELECT country ,  count(*) FROM singer GROUP BY country
+How many singers are from each country?
+#1,schema_links:[singer.Singer_ID,singer.Country]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT Country ,  COUNT (Singer_ID) FROM singer GROUP BY Country
+#4,SQL: SELECT Country ,  COUNT (Singer_ID) FROM singer GROUP BY Country,   same:True
+12it [10:43, 53.29s/it]
+🔴 index is 12
+SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)
+List all song names by singers above the average age.
+#1,schema_links:[singer.Song_Name,singer.Age]
+#2,predicted_class:"NESTED"
+#3,SQL: SELECT Song_Name FROM singer WHERE Age  >  (SELECT avg(age) FROM singer)
+#4,SQL: SELECT DISTINCT singer.Song_Name FROM singer WHERE singer.Age > (SELECT avg(age) FROM singer),   same:False
+13it [11:43, 55.44s/it]
+🔴 index is 13
+SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)
+What are all the song names by singers who are older than average?
+#1,schema_links:[singer.Song_Name,singer.Age]
+#2,predicted_class:"NESTED"
+#3,SQL: SELECT Song_Name FROM singer WHERE Age  >  (SELECT avg(age) FROM singer)
+#4,SQL: SELECT DISTINCT Song_Name FROM singer WHERE Age > (SELECT avg(age) FROM singer),   same:False
+14it [12:43, 56.78s/it]
+🔴 index is 14
+SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000
+Show location and name for all stadiums with a capacity between 5000 and 10000.
+#1,schema_links:[stadium.Location,stadium.Name,stadium.Capacity,5000,10000]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT Location ,  Name FROM stadium WHERE Capacity BETWEEN 5000 AND 10000
+#4,SQL: SELECT Location ,  Name FROM stadium WHERE Capacity BETWEEN 5000 AND 10000,   same:True
+15it [13:38, 56.04s/it]
+🔴 index is 15
+SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000
+What are the locations and names of all stations with capacity between 5000 and 10000?
+#1,schema_links:[stadium.Location,stadium.Name,stadium.Capacity,5000,10000]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT Location ,  Name FROM stadium WHERE Capacity BETWEEN 5000 AND 10000
+#4,SQL: SELECT Location ,  Name FROM stadium WHERE Capacity BETWEEN 5000 AND 10000,   same:True
+16it [14:32, 55.58s/it]
+🔴 index is 16
+select max(capacity), average from stadium
+What is the maximum capacity and the average of all stadiums ?
+#1,schema_links:[stadium.Capacity,stadium.Average]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT max(Capacity) ,  avg(Average) FROM stadium
+#4,SQL: SELECT max(Capacity) ,  avg(Average) FROM stadium,   same:True
+17it [15:25, 54.92s/it]
+🔴 index is 17
+select avg(capacity) ,  max(capacity) from stadium
+What is the average and maximum capacities for all stadiums ?
+#1,schema_links:[stadium.Capacity,stadium.Highest]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT avg(Capacity) ,  max(Highest) FROM stadium
+#4,SQL: SELECT avg(Capacity) ,  max(Capacity) FROM stadium,   same:False
+18it [16:18, 54.21s/it]
+🔴 index is 18
+SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1
+What is the name and capacity for the stadium with highest average attendance?
+#1,schema_links:[stadium.Name,stadium.Capacity,stadium.Average]
+#2,predicted_class:"NESTED"
+#3,SQL: SELECT Name ,  Capacity FROM stadium WHERE average  =  (SELECT max(average) FROM stadium)
+#4,SQL: SELECT Name ,  Capacity FROM stadium WHERE average  =  (SELECT max(average) FROM stadium),   same:True
+19it [17:19, 56.32s/it]
+🔴 index is 19
+SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1
+What is the name and capacity for the stadium with the highest average attendance?
+#1,schema_links:[stadium.Name,stadium.Capacity,stadium.Average]
+#2,predicted_class:"NESTED"
+#3,SQL: SELECT Name ,  Capacity FROM stadium WHERE average  =  (SELECT max(average) FROM stadium)
+#4,SQL: SELECT Name ,  Capacity FROM stadium WHERE average  =  (SELECT max(average) FROM stadium),   same:True
+20it [18:21, 57.84s/it]
+🔴 index is 20
+SELECT count(*) FROM concert WHERE YEAR  =  2014 OR YEAR  =  2015
+How many concerts are there in year 2014 or 2015?
+#1,schema_links:[concert.*,concert.Year,2014,2015]
+#2,predicted_class:"EASY"
+#3,SQL: SELECT count(*) FROM concert WHERE Year  =  2014 OR Year  =  2015
+#4,SQL: SELECT count(*) FROM concert WHERE Year  =  2014 OR Year  =  2015,   same:True
+21it [19:15, 56.94s/it]

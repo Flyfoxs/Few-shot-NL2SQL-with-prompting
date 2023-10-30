@@ -654,7 +654,7 @@ if __name__ == '__main__':
         except:
             print("Slicing error for the schema_linking module")
             schema_links = "[]"
-        print("🟠#1, ", f"schema_links:{schema_links}", "🟠",)
+        print(f"#1,schema_links:{schema_links}")
         classification = None
         while classification is None:
             try:
@@ -668,7 +668,7 @@ if __name__ == '__main__':
         except:
             print("Slicing error for the classification module")
             predicted_class = '"NESTED"'
-        print("🟡#2, ", f"predicted_class:{predicted_class}, classification:{classification.strip()}", "🟡", )
+        print(f"#2,predicted_class:{predicted_class}")
         if '"EASY"' in predicted_class:
             # print("EASY")
             SQL = None
@@ -710,7 +710,7 @@ if __name__ == '__main__':
                 SQL = "SELECT"
         SQL = SQL.strip()
         SQL_v1 = SQL
-        print("🍉#3, ", f"SQL: {SQL}, ", "🍉", )
+        print(f"#3,SQL: {SQL}")
         debugged_SQL = None
         while debugged_SQL is None:
             try:
@@ -720,7 +720,7 @@ if __name__ == '__main__':
                 pass
         debugged_SQL = debugged_SQL.strip()
         SQL = "SELECT " + debugged_SQL
-        print("🍍#4, ", f"SQL: {SQL.strip()},   same:{SQL==SQL_v1}", "🍍",)
+        print(f"#4,SQL: {SQL.strip()},   same:{SQL==SQL_v1}")
         CODEX.append([row['question'], SQL, row['query'], row['db_id']])
         #break
     df = pd.DataFrame(CODEX, columns=['NLQ', 'PREDICTED SQL', 'GOLD SQL', 'DATABASE'])
