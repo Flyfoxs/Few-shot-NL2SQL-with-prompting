@@ -1,0 +1,65 @@
+🔴 index is 0
+SELECT count(*) FROM singer
+How many singers do we have?
+🟠#1,  schema_links:[singer.Singer_ID] 🟠
+🟡#2,  predicted_class:"EASY", classification:The SQL query for the question "How many singers do we have?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY" 🟡
+🍉#3,  SQL: SELECT count(*) FROM singer,  🍉
+🍍#4,  SQL: SELECT count(DISTINCT Singer_ID) FROM singer,   same:False 🍍
+1it [00:47, 47.59s/it]
+🔴 index is 1
+SELECT count(*) FROM singer
+What is the total number of singers?
+🟠#1,  schema_links:[singer.Singer_ID] 🟠
+🟡#2,  predicted_class:"EASY", classification:The SQL query for the question "What is the total number of singers?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY" 🟡
+🍉#3,  SQL: SELECT count(*) FROM singer,  🍉
+🍍#4,  SQL: SELECT count(DISTINCT Singer_ID) FROM singer,   same:False 🍍
+2it [01:34, 46.97s/it]
+🔴 index is 2
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+Show name, country, age for all singers ordered by age from the oldest to the youngest.
+🟠#1,  schema_links:[singer.Name,singer.Country,singer.Age,singer.Age] 🟠
+🟡#2,  predicted_class:"EASY", classification:The SQL query for the question "Show name, country, age for all singers ordered by age from the oldest to the youngest." needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY" 🟡
+🍉#3,  SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC,  🍉
+🍍#4,  SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC,   same:True 🍍
+3it [02:23, 48.14s/it]
+🔴 index is 3
+SELECT name ,  country ,  age FROM singer ORDER BY age DESC
+What are the names, countries, and ages for every singer in descending order of age?
+🟠#1,  schema_links:[singer.Name,singer.Country,singer.Age] 🟠
+🟡#2,  predicted_class:"EASY", classification:The SQL query for the question "What are the names, countries, and ages for every singer in descending order of age?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY" 🟡
+🍉#3,  SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC,  🍉
+🍍#4,  SQL: SELECT name ,  country ,  age FROM singer ORDER BY age DESC,   same:True 🍍
+4it [03:11, 48.08s/it]
+🔴 index is 4
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+What is the average, minimum, and maximum age of all singers from France?
+🟠#1,  schema_links:[singer.Age,singer.Country,France] 🟠
+🟡#2,  predicted_class:"EASY", classification:The SQL query for the question "What is the average, minimum, and maximum age of all singers from France?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY" 🟡
+🍉#3,  SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France',  🍉
+🍍#4,  SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France',   same:True 🍍
+5it [04:02, 49.21s/it]
+🔴 index is 5
+SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'
+What is the average, minimum, and maximum age for all French singers?
+🟠#1,  schema_links:[singer.Age,French] 🟠
+🟡#2,  predicted_class:"EASY", classification:The SQL query for the question "What is the average, minimum, and maximum age for all French singers?" needs these tables = [singer], so we don't need JOIN.
+Plus, it doesn't require nested queries with (INTERSECT, UNION, EXCEPT, IN, NOT IN), and we need the answer to the questions = [""].
+So, we don't need JOIN and don't need nested queries, then the the SQL query can be classified as "EASY".
+Label: "EASY" 🟡
+🍉#3,  SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'French',  🍉
+🍍#4,  SQL: SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France',   same:False 🍍
