@@ -434,8 +434,11 @@ SQL: SELECT T3.title ,  T3.credits FROM classroom AS T1 JOIN SECTION AS T2 ON T1
 
 '''
 #----------------------------------------------------------------------------------------------------------
-
-if sys.argv[1] == "--dataset" and sys.argv[3] == "--output":
+if len(sys.argv) == 1:
+    DATASET_SCHEMA = "./data/" + "tables.json"
+    DATASET = "./data/" + "dev.json"
+    OUTPUT_FILE = "predicted_sql.txt"
+elif sys.argv[1] == "--dataset" and sys.argv[3] == "--output":
     DATASET_SCHEMA = sys.argv[2]+"tables.json"
     DATASET = sys.argv[2]+"dev.json"
     OUTPUT_FILE = sys.argv[4]
@@ -635,7 +638,7 @@ if __name__ == '__main__':
     CODEX = []
     for index, row in tqdm(val_df.iterrows()):
         #if index < 405: continue #for testing
-        print(f"🔴 index is {index}")
+        print(f"\n🔴 index is {index}")
         print(row['query'])
         print(row['question'])
         schema_links = None
@@ -644,45 +647,45 @@ if __name__ == '__main__':
                 schema_links = GPT4_generation(
                     schema_linking_prompt_maker(row['question'], row['db_id']))
             except:
-                time.sleep(3)
+                time.sleep(1)
                 pass
         try:
             schema_links = schema_links.split("Schema_links: ")[1]
         except:
             print("Slicing error for the schema_linking module")
             schema_links = "[]"
-        print("🟠", schema_links, "🟠",)
+        print("🟠#1, ", f"schema_links:{schema_links}", "🟠",)
         classification = None
         while classification is None:
             try:
                 classification = GPT4_generation(
                     classification_prompt_maker(row['question'], row['db_id'], schema_links[1:]))
             except:
-                time.sleep(3)
+                time.sleep(1)
                 pass
         try:
             predicted_class = classification.split("Label: ")[1]
         except:
             print("Slicing error for the classification module")
             predicted_class = '"NESTED"'
-        print("🟡", classification, "🟡", )
+        print("🟡#2, ", f"predicted_class:{predicted_class}, classification:{classification}", "🟡", )
         if '"EASY"' in predicted_class:
-            print("EASY")
+            # print("EASY")
             SQL = None
             while SQL is None:
                 try:
                     SQL = GPT4_generation(easy_prompt_maker(row['question'], row['db_id'], schema_links))
                 except:
-                    time.sleep(3)
+                    time.sleep(1)
                     pass
         elif '"NON-NESTED"' in predicted_class:
-            print("NON-NESTED")
+            # print("NON-NESTED")
             SQL = None
             while SQL is None:
                 try:
                     SQL = GPT4_generation(medium_prompt_maker(row['question'], row['db_id'], schema_links))
                 except:
-                    time.sleep(3)
+                    time.sleep(1)
                     pass
             try:
                 SQL = SQL.split("SQL: ")[1]
@@ -691,30 +694,33 @@ if __name__ == '__main__':
                 SQL = "SELECT"
         else:
             sub_questions = classification.split('questions = ["')[1].split('"]')[0]
-            print("NESTED")
+            # print("NESTED")
             SQL = None
             while SQL is None:
                 try:
                     SQL = GPT4_generation(
                         hard_prompt_maker(row['question'], row['db_id'], schema_links, sub_questions))
                 except:
-                    time.sleep(3)
+                    time.sleep(1)
                     pass
             try:
                 SQL = SQL.split("SQL: ")[1]
             except:
                 print("SQL slicing error")
                 SQL = "SELECT"
-        print("🍉", SQL, "🍉", )
+        SQL = SQL.strip()
+        SQL_v1 = SQL
+        print("🍉#3, ", f"SQL: {SQL}, ", "🍉", )
         debugged_SQL = None
         while debugged_SQL is None:
             try:
                 debugged_SQL = GPT4_debug(debuger(row['question'], row['db_id'], SQL)).replace("\n", " ")
             except:
-                time.sleep(3)
+                time.sleep(1)
                 pass
+        debugged_SQL = debugged_SQL.strip()
         SQL = "SELECT " + debugged_SQL
-        print("🍍", SQL, "🍍",)
+        print("🍍#4, ", f"SQL: {SQL.strip()},   same:{SQL==SQL_v1}", "🍍",)
         CODEX.append([row['question'], SQL, row['query'], row['db_id']])
         #break
     df = pd.DataFrame(CODEX, columns=['NLQ', 'PREDICTED SQL', 'GOLD SQL', 'DATABASE'])
