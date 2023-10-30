@@ -588,7 +588,7 @@ llm = HuggingFaceTextGenInference(
 def GPT4_generation(prompt):
     try:
         response = llm.predict(prompt,
-                      stop=["Q:"])
+                      stop=["Q:", "\nTable "])
     except Exception as e:
         print(e)
         raise e
@@ -650,7 +650,7 @@ if __name__ == '__main__':
                 time.sleep(1)
                 pass
         try:
-            schema_links = schema_links.split("Schema_links: ")[1]
+            schema_links = schema_links.split("Schema_links: ")[1].strip()
         except:
             print("Slicing error for the schema_linking module")
             schema_links = "[]"
@@ -664,11 +664,11 @@ if __name__ == '__main__':
                 time.sleep(1)
                 pass
         try:
-            predicted_class = classification.split("Label: ")[1]
+            predicted_class = classification.split("Label: ")[1].strip()
         except:
             print("Slicing error for the classification module")
             predicted_class = '"NESTED"'
-        print("🟡#2, ", f"predicted_class:{predicted_class}, classification:{classification}", "🟡", )
+        print("🟡#2, ", f"predicted_class:{predicted_class}, classification:{classification.strip()}", "🟡", )
         if '"EASY"' in predicted_class:
             # print("EASY")
             SQL = None
