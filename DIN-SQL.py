@@ -647,7 +647,7 @@ if __name__ == '__main__':
                 schema_links = GPT4_generation(
                     schema_linking_prompt_maker(row['question'], row['db_id']))
             except:
-                time.sleep(1)
+                #time.sleep(1)
                 pass
         try:
             schema_links = schema_links.split("Schema_links: ")[1].strip()
@@ -661,7 +661,7 @@ if __name__ == '__main__':
                 classification = GPT4_generation(
                     classification_prompt_maker(row['question'], row['db_id'], schema_links[1:]))
             except:
-                time.sleep(1)
+                #time.sleep(1)
                 pass
         try:
             predicted_class = classification.split("Label: ")[1].strip()
@@ -676,7 +676,7 @@ if __name__ == '__main__':
                 try:
                     SQL = GPT4_generation(easy_prompt_maker(row['question'], row['db_id'], schema_links))
                 except:
-                    time.sleep(1)
+                    #time.sleep(1)
                     pass
         elif '"NON-NESTED"' in predicted_class:
             # print("NON-NESTED")
@@ -685,7 +685,7 @@ if __name__ == '__main__':
                 try:
                     SQL = GPT4_generation(medium_prompt_maker(row['question'], row['db_id'], schema_links))
                 except:
-                    time.sleep(1)
+                    #time.sleep(1)
                     pass
             try:
                 SQL = SQL.split("SQL: ")[1]
@@ -701,7 +701,7 @@ if __name__ == '__main__':
                     SQL = GPT4_generation(
                         hard_prompt_maker(row['question'], row['db_id'], schema_links, sub_questions))
                 except:
-                    time.sleep(1)
+                    #time.sleep(1)
                     pass
             try:
                 SQL = SQL.split("SQL: ")[1]
@@ -716,7 +716,7 @@ if __name__ == '__main__':
             try:
                 debugged_SQL = GPT4_debug(debuger(row['question'], row['db_id'], SQL)).replace("\n", " ")
             except:
-                time.sleep(1)
+                #time.sleep(1)
                 pass
         debugged_SQL = debugged_SQL.strip()
         SQL = "SELECT " + debugged_SQL
